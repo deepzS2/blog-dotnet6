@@ -1,0 +1,23 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+# docker run --name blog-database -e MYSQL_DATABASE=blogdb -e MYSQL_USER=deepz -e MYSQL_PASSWORD=g3tp0wn3d -d mysql
+
+version: '3.4'
+
+services:
+  database:
+    image: mysql
+    environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: blogdb
+       MYSQL_USER: deepz
+       MYSQL_PASSWORD: g3tp0wn3d
+    restart: always
+    ports:
+      - 3306:3306
+  # blog:
+  #   image: blog
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 80:80
